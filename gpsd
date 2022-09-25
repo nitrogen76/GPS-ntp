@@ -1,0 +1,17 @@
+# Default settings for the gpsd init script and the hotplug wrapper.
+# Start the gpsd daemon automatically at boot time
+START_DAEMON="true"
+# Use USB hotplugging to add new USB devices automatically to the daemon
+USBAUTO="true"
+# Devices gpsd should collect to at boot time.
+# They need to be read/writeable, either by user gpsd or the group dialout.
+
+# Use this if you are using the PPI pinout of your gps
+DEVICES="/dev/ttyACM0 /dev/pps0"
+# Use this if you just want a gps clock that's "good enough"
+# and not nanosecond accurate, and don't want to pull a pinout
+# of a rpi, or just want to use it on a regular server without
+# pps hardware.
+## DEVICES="/dev/ttyACM0"
+# Other options you want to pass to gpsd
+GPSD_OPTIONS="-n"
