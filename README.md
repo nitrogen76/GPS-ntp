@@ -41,7 +41,7 @@ I have a sample config file in https://github.com/nitrogen76/GPS-ntp/blob/master
 Now, set up chronyd.  I have a sample config file for that here: https://github.com/nitrogen76/GPS-ntp/blob/master/chrony.conf
 
 You know it works if you see the following output for "chronyc sources"
-
+<pre>
 `MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ===============================================================================
 #- GPS                           0   4   377    12    +51ms[  +51ms] +/-  163ms
@@ -50,3 +50,4 @@ You know it works if you see the following output for "chronyc sources"
 ^- sg.ntp.tlercher.de            2  10   377    92    +12ms[  +12ms] +/-  116ms
 ^- ntp18.doctor.com              2   9   377   220   +369us[ +370us] +/-   46ms
 ^- 205.159.239.5                 2  10   377   841   -346us[ -377us] +/-   70ms`
+</pre>
