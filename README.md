@@ -57,6 +57,6 @@ You know it works if you see the following output for "chronyc sources"
 
 WHY would you want to do this?
 
-*You're a huge nerd and like playing with stuff
-*You're a HAM in a remote area and need good timing for protocols like FT8
-*You don't trust services like pool.ntp.org
+* You're a huge nerd and like playing with stuff
+* You're a HAM in a remote area and need good timing for protocols like FT8
+* You don't trust services like pool.ntp.org
