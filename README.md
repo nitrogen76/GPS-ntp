@@ -20,10 +20,10 @@ If you're using a RPI, and want to use the pps nanoscale option:
 * add this line to /etc/modules.conf:
 `pps-gpio`
 
-* Add this line to your /boot.txt:
+* Add this line to your /boot.txt:<br>
 `dtoverlay=pps-gpio,gpiopin=18`
 
-* If you want to use the tty output (which I didn't, for ease of use) add these lines to /boot.txt
+* If you want to use the tty output (which I didn't, for ease of use) add these lines to /boot.txt<br>
 `enable_uart=1
 init_uart_baud=9600`
 
