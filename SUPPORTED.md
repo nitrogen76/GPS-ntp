@@ -6,6 +6,10 @@ Check out the gpsd [HALL OF SHAME](https://gpsd.io/hall-of-shame.html) to see wh
 
 In general, look at the [gpsd compatibility page](https://gpsd.io/hardware.html) for information on what to get.
 
+Also, you want to insure that anything you get exposes PPS out for good timing information.  USB alone isnt' good enough, becaue NMEA sentences alone do not give you timing information, and USB's latency tends to be too unreliable alone for this.
+
+Luckelly, Chronyd supports using a pps signal to lock to the GPS for nearly-nanosecond reliability)
+
 My suggestion:
 
 Get anything from ublox via sparkfun.
