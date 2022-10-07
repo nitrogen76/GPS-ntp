@@ -10,7 +10,7 @@ FIRST: get a GPS supported by GPSD chip.  Any GPS that is supported by gpsd, or 
 NMEA sentences take more latency, so using one whose binary format is compatible helps if you aren't doing the high-power
 setup.
 
-I bought this counterfeit [NEO-6M GPS]](https://www.amazon.com/dp/B07P8YMVNT?th=1)
+I bought this counterfeit [NEO-6M GPS](https://www.amazon.com/dp/B07P8YMVNT?th=1)
 but any chip with a USB out or a tty out, plus a PPS out will work.  (see
 
 The NeoM9N from Sparkfun
