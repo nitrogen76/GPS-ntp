@@ -32,7 +32,7 @@ Now, you'll have to do some soldering.  Solder the header onto the GPS chip.  Yo
 GND goes to pin 3 on the rpi pinout
 PPI goes to GPIO 18 (which is pin 6, i know, its weird)
 Refer to the rpi B pinout here, or whatever you're using.
-![https://www.etechnophiles.com/wp-content/uploads/2020/12/R-Pi-3-B-Pinout-768x572.jpg]
+![RPI GPIO Pinout](https://www.etechnophiles.com/wp-content/uploads/2020/12/R-Pi-3-B-Pinout-768x572.jpg)
 
 Boot up your rpi, and now let's set up gpsd.
 I have a sample config file in in this project above that goes in /etc/default/gpsd
