@@ -10,8 +10,7 @@ FIRST: get a NEO-6M GPS chip.  Any GPS that is supported by gpsd, or speaks NMEA
 NMEA sentences take more latency, so using one whose binary format is compatible helps if you aren't doing the high-power
 setup.
 
-I bought this one here:
-https://www.amazon.com/dp/B07P8YMVNT?th=1
+I bought this one [here:](https://www.amazon.com/dp/B07P8YMVNT?th=1)
 but any chip with a USB out or a tty out, plus a PPS out will work.
 
 IF you're going for the nanoscale one, I'm going to assume you're using a raspberry Pi model B, but will show you which pins matter if you're using something else.
@@ -33,12 +32,12 @@ Now, you'll have to do some soldering.  Solder the header onto the GPS chip.  Yo
 GND goes to pin 3 on the rpi pinout
 PPI goes to GPIO 18 (which is pin 6, i know, its weird)
 Refer to the rpi B pinout here, or whatever you're using.
-https://www.etechnophiles.com/wp-content/uploads/2020/12/R-Pi-3-B-Pinout-768x572.jpg
+![https://www.etechnophiles.com/wp-content/uploads/2020/12/R-Pi-3-B-Pinout-768x572.jpg]
 
 Boot up your rpi, and now let's set up gpsd.
-I have a sample config file in https://github.com/nitrogen76/GPS-ntp/blob/master/gpsd that goes in /etc/default/gpsd
+I have a sample config file in in this project above that goes in /etc/default/gpsd
 
-Now, set up chronyd.  I have a sample config file for that here: https://github.com/nitrogen76/GPS-ntp/blob/master/chrony.conf
+Now, set up chronyd.  I have a sample config file for that in this project above.
 
 You know it works if you see the following output for "chronyc sources"
 <pre>
