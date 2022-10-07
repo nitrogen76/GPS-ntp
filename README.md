@@ -24,8 +24,8 @@ If you're using a RPI, and want to use the pps nanoscale option:
 `dtoverlay=pps-gpio,gpiopin=18`
 
 * If you want to use the tty output (which I didn't, for ease of use) add these lines to /boot.txt<br>
-`enable_uart=1
-init_uart_baud=9600`
+`enable_uart=1<br>
+init_uart_baud=9600`<br>
 
 I just use the USB connection, it's better quality.
 
