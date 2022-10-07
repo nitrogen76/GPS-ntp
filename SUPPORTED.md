@@ -10,8 +10,12 @@ My suggestion:
 
 Get anything from ublox via sparkfun.
 
-[MAX-M10S](https://www.sparkfun.com/products/18037] would be a good low-cost option
+[MAX-M10S](https://www.sparkfun.com/products/18037) would be a good low-cost option
+
 [NEO M9N](https://www.sparkfun.com/products/17285)
-[ZED-F9T](https://www.sparkfun.com/products/18774] would be excellent, but it's expensive.
+
+[ZED-F9T](https://www.sparkfun.com/products/18774) would be excellent, but it's expensive.
+
 [GPS-RTK](https://www.sparkfun.com/products/16481) another expensive option
-[Counterfeit NEO-6M GPS]](https://www.amazon.com/dp/B07P8YMVNT?th=1) works well enough, but I hate supporting piracy.
+
+[Counterfeit NEO-6M GPS](https://www.amazon.com/dp/B07P8YMVNT?th=1) works well enough, but I hate supporting piracy.
