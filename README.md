@@ -17,7 +17,7 @@ but any chip with a USB out or a tty out, plus a PPS out will work.
 IF you're going for the nanoscale one, I'm going to assume you're using a raspberry Pi model B, but will show you which pins matter if you're using something else.
 
 If you're using a RPI, and want to use the pps nanoscale option:
-* add this line to /etc/modules.conf:
+* add this line to /etc/modules.conf:<br>
 `pps-gpio`
 
 * Add this line to your /boot.txt:<br>
