@@ -11,10 +11,9 @@ NMEA sentences take more latency, so using one whose binary format is compatible
 setup.
 
 I bought this counterfeit [NEO-6M GPS](https://www.amazon.com/dp/B07P8YMVNT?th=1)
-but any chip with a USB out or a tty out, plus a PPS out will work.  (see
+but any chip with a USB out or a tty out, plus a PPS out will work.  
 
-The NeoM9N from Sparkfun
-
+See: [SUPORTED.md](SUPPORTED.md)
 IF you're going for the nanoscale one, I'm going to assume you're using a raspberry Pi model B, but will show you which pins matter if you're using something else.
 
 If you're using a RPI, and want to use the pps nanoscale option:
