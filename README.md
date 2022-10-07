@@ -18,14 +18,14 @@ IF you're going for the nanoscale one, I'm going to assume you're using a raspbe
 
 If you're using a RPI, and want to use the pps nanoscale option:
 * add this line to /etc/modules.conf:
-pps-gpio
+`pps-gpio`
 
 * Add this line to your /boot.txt:
-dtoverlay=pps-gpio,gpiopin=18
+`dtoverlay=pps-gpio,gpiopin=18`
 
 * If you want to use the tty output (which I didn't, for ease of use) add these lines to /boot.txt
-enable_uart=1
-init_uart_baud=9600
+`enable_uart=1
+init_uart_baud=9600`
 
 I just use the USB connection, it's better quality.
 
@@ -42,11 +42,11 @@ Now, set up chronyd.  I have a sample config file for that here: https://github.
 
 You know it works if you see the following output for "chronyc sources"
 
-MS Name/IP address         Stratum Poll Reach LastRx Last sample
+`MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ===============================================================================
 #- GPS                           0   4   377    12    +51ms[  +51ms] +/-  163ms
 #* PPS                           0   4   377    12   +558ns[ +739ns] +/-  312ns
 ^- lofn.fancube.com              2  10   377   146  -1415us[-1415us] +/-   42ms
 ^- sg.ntp.tlercher.de            2  10   377    92    +12ms[  +12ms] +/-  116ms
 ^- ntp18.doctor.com              2   9   377   220   +369us[ +370us] +/-   46ms
-^- 205.159.239.5                 2  10   377   841   -346us[ -377us] +/-   70ms
+^- 205.159.239.5                 2  10   377   841   -346us[ -377us] +/-   70ms`
