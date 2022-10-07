@@ -19,6 +19,10 @@ If you're using a RPI, and want to use the pps nanoscale option:
 * add this line to /etc/modules.conf:<br>
 `pps-gpio`
 
+SECOND: Get [Raspibian](https://www.raspbian.org/)set up.  Basic raspibian setup is beyond the scope of this document, and you can find information on the website on how to do it.
+
+After you get Raspibian set up, you'll want to do the following:
+
 * Add this line to your /boot.txt:<br>
 `dtoverlay=pps-gpio,gpiopin=18`
 
