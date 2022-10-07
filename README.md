@@ -54,3 +54,9 @@ You know it works if you see the following output for "chronyc sources"
 ^- ntp18.doctor.com              2   9   377   220   +369us[ +370us] +/-   46ms
 ^- 205.159.239.5                 2  10   377   841   -346us[ -377us] +/-   70ms`
 </pre>
+
+WHY would you want to do this?
+
+*You're a huge nerd and like playing with stuff
+*You're a HAM in a remote area and need good timing for protocols like FT8
+*You don't trust services like pool.ntp.org
