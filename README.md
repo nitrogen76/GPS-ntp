@@ -55,6 +55,8 @@ You know it works if you see the following output for "chronyc sources"
 ^- 205.159.239.5                 2  10   377   841   -346us[ -377us] +/-   70ms`
 </pre>
 
+MORE FOR SETTING UP AN [RTC](https://pimylifeup.com/raspberry-pi-rtc/)
+
 WHY would you want to do this?
 
 * You're a huge nerd and like playing with stuff
