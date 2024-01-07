@@ -56,7 +56,7 @@ You know it works if you see the following output for "chronyc sources"
 </pre>
 
 MORE FOR SETTING UP AN [RTC](https://pimylifeup.com/raspberry-pi-rtc/)
-![RTC Pinout]img/pi_rtc_bb.jpg
+![RTC Pinout](img/pi_rtc_bb.jpg)
 WHY would you want to do this?
 
 * You're a huge nerd and like playing with stuff
