@@ -21,8 +21,6 @@ Get [Raspibian](https://www.raspbian.org/) set up.  Basic raspibian setup is bey
 
 After you get Raspibian set up, you'll want to do the following:
 
-* add this line to /etc/modules.conf:<br>
-`pps-gpio`
 * Add this line to your /boot.txt:<br>
 `dtoverlay=pps-gpio,gpiopin=18`
 
@@ -62,3 +60,217 @@ WHY would you want to do this?
 * You're a huge nerd and like playing with stuff
 * You're a HAM in a remote area and need good timing for protocols like FT8
 * You don't trust services like pool.ntp.org
+
+
+---
+
+# GPSD and pops checking
+
+Verify status:
+
+```bash
+systemctl status gpsd
+```
+
+---
+
+# Verifying GPS Connectivity
+
+## Using `cgps`
+
+Run:
+
+```bash
+cgps
+```
+
+Expected:
+- GPS fix
+- satellite data
+- UTC time
+- coordinates
+
+---
+
+## Using `gpspipe`
+
+Raw GPS data:
+
+```bash
+gpspipe -r
+```
+
+Expected NMEA output:
+
+```text
+$GPRMC,...
+$GPGGA,...
+```
+
+---
+
+# Verifying PPS
+
+Ensure PPS device exists:
+
+```bash
+ls -l /dev/pps*
+```
+
+Expected:
+
+```text
+/dev/pps0
+```
+
+Verify PPS kernel modules:
+
+```bash
+lsmod | grep pps
+```
+
+Typical modules:
+
+```text
+pps_core
+pps_gpio
+```
+
+---
+
+## PPS Pulse Test
+
+Run:
+
+```bash
+sudo ppstest /dev/pps0
+```
+
+Healthy output:
+
+```text
+source 0 - assert 1778375890.999996411, sequence: 815
+source 0 - assert 1778375891.999995981, sequence: 816
+```
+
+This confirms:
+- PPS GPIO overlay is working
+- kernel PPS support is functioning
+- PPS pulses are arriving correctly
+
+---
+
+# Chrony Configuration
+
+Example Chrony refclock configuration:
+
+```text
+refclock SHM 0 offset 0.5 delay 0.2 refid GPS noselect
+refclock PPS /dev/pps0 lock GPS refid PPS
+```
+
+Notes:
+
+- GPS serial time is used for coarse UTC time
+- PPS provides precise second-edge timing
+- `lock GPS` associates PPS pulses with GPS time
+
+Restart Chrony:
+
+```bash
+sudo systemctl restart chrony
+```
+
+---
+
+# Verifying Chrony
+
+Check synchronization sources:
+
+```bash
+chronyc sources -v
+```
+
+Healthy output example:
+
+```text
+MS Name/IP address         Stratum Poll Reach LastRx Last sample
+===============================================================================
+#- GPS                           0   4     7    13    +31ms[  +32ms] +/-  163ms
+#* PPS                           0   4     7    12   -613ns[ +404us] +/-  207ns
+```
+
+Meaning:
+
+- `#* PPS`
+  - PPS is the selected synchronization source
+- `#- GPS`
+  - GPS serial source is present but not selected
+- `Reach`
+  - NTP reachability register (displayed in octal)
+- `377`
+  - healthy recent polling history
+
+---
+
+# DHCP NTP Sources
+
+Chrony may automatically import DHCP-provided NTP servers through:
+
+```text
+sourcedir /run/chrony-dhcp
+```
+
+These may appear unexpectedly in:
+
+```bash
+chronyc sources -v
+```
+
+For a dedicated GPS/PPS appliance, DHCP NTP sources are usually unnecessary and may be disabled.
+
+---
+
+# Common Troubleshooting
+
+## No `/dev/pps0`
+
+Check:
+- dtoverlay line
+- PPS wiring
+- reboot completed
+- kernel modules loaded
+
+---
+
+## GPS Works But PPS Does Not
+
+Check:
+- PPS GPIO wiring
+- correct GPIO pin number
+- `ppstest /dev/pps0`
+
+---
+
+## PPS Works But Chrony Shows `#?`
+
+Usually means:
+- GPS serial source not working
+- PPS not locked to GPS
+- Chrony has not received enough valid samples yet
+
+Wait a few polling intervals and verify GPS connectivity.
+
+---
+
+# Useful Commands
+
+```bash
+chronyc tracking
+chronyc sources -v
+gpspipe -r
+cgps
+ppstest /dev/pps0
+```
+
+
